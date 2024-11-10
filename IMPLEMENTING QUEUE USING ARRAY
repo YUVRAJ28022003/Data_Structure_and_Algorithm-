@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+
+class queueimp{
+   public:
+   int front;
+   int rear;
+   int q[10];
+   queueimp(){
+    front = -1;
+    rear = -1;
+
+   }
+
+   void push(int x){
+    if(front == -1 && rear == -1){
+        front = rear =0;
+        q[front] =x;
+        cout<<"Only one element "<<x<<" is present in the queue ."<<endl;
+        
+    }else if(front == 10){
+        cout<<"overflow"<<endl;
+    }else{
+        front++;
+        q[front] = x;
+        cout<<"element "<<x<<" is present at "<<front<<" index ."<<endl;
+    }
+   }
+   void pop(){
+    if(rear == -1) cout<<"No element is present in the queue"<<endl;
+    else{
+      cout<<"Element "<<q[rear]<<" is popped from "<<rear<<" index"<<endl;
+      q[rear] = -1;
+      rear++;
+    }
+   }
+
+   void fandlelement(){
+      cout<<"first element is :"<<q[front] <<" at index " <<front<<" last element is :"<<q[rear] <<" at index "<<rear<<endl;
+   }
+
+
+};
+
+
+
+int main(){
+    queueimp a;
+    a.push(3);
+    a.push(1);
+    a.push(4);
+    a.push(6);
+    a.push(7);
+    a.push(9);
+
+    a.pop();
+    a.pop();
+    a.pop();
+    a.pop();
+    a.pop();
+
+
+    a.fandlelement();
+    return 0;
+}
