@@ -1,0 +1,60 @@
+// implementation stack using array 
+#include<iostream>
+using namespace std;
+ class stackimp{
+    public:
+     int  top =-1;
+     int  st[10];
+    
+    void push(int x){
+        if(top >= 10){
+            cout<<"overflow ."<<endl;
+            return;
+        }
+        top = top+1;
+        st[top] = x;
+        cout<<x<< " element is pushed at "<<top<<" index ."<<endl;
+    }
+
+    void pop(){
+      if(top == -1) {
+         cout<<"underflow ."<<endl;
+         return ;
+      }
+      int x = st[top];
+      top--;
+      cout<<x<<" Element is popped ."<<endl;
+    }
+
+    void top1(){
+        if(top == -1) 
+          cout<<"no element present in the stack .";
+        else cout<< "top element is "<<st[top]<<endl;;
+
+    }
+
+    void size(){
+        cout<<"This size of stack is "<<top<<endl;
+    }
+
+ };
+
+ int main(){
+    stackimp a ;
+    a.push(5);
+    a.push(4);
+    a.push(6);
+    a.push(2);
+    
+    a.pop();
+    a.pop();
+    a.pop();
+    a.pop();
+    a.pop();
+
+    a.top1();
+
+    a.size();
+
+    return 0;
+ }
